@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
-import 'bootstrap/dist/css/bootstrap.css';
+
 
 class ListPage extends Component {
     constructor() {
@@ -9,10 +9,13 @@ class ListPage extends Component {
         this.state = {
             entries: []
         };
-    }
+    };
 
     componentDidMount() {
-        fetch('/getList')
+        const fetchData = {
+            method: 'GET'
+        };
+        fetch('/getList', fetchData)
             .then(response => response.json())
             .then(entries => {
                 console.log(entries);
@@ -30,10 +33,6 @@ class ListPage extends Component {
         return divStyle;
     }
     render() {
-
-
-
-
         const myList = this.state.entries.map((product) =>
 
                 <div style={this.bacgroundImg(product.img)} key={product.id.toString()} className="col-lg-4 col-md-4 col-sm-6 col-xs-12 prod-box">
@@ -49,8 +48,6 @@ class ListPage extends Component {
                     <div className="bg-fog"></div>
 
                 </div>
-
-
         );
         return (
             <div className="container">
