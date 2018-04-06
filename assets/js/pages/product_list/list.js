@@ -20,6 +20,7 @@ class ListPage extends Component {
             .then(entries => {
                 console.log(entries);
                 this.setState({
+
                     entries
 
                 });

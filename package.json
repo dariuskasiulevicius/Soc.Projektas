@@ -12,6 +12,7 @@
     "build": "encore production"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^4.0.0",
     "material-ui": "^0.20.0",
     "prop-types": "^15.6.0",
