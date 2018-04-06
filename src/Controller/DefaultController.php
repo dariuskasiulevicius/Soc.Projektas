@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
+
 class DefaultController extends Controller
 {
     /**
@@ -26,6 +27,7 @@ class DefaultController extends Controller
     {
         $list = new DbData();
         $wishList = $list->getWishList();
+
         return new JsonResponse( $wishList);
 
     }

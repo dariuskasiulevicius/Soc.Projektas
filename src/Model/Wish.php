@@ -9,8 +9,27 @@
 namespace App\Model;
 
 
-class Wish
+abstract class JsonSerialize {
+
+    public function jsonSerialize() {
+        $class = get_class($this);
+        $json = array();
+        $properties = get_class_vars($class);
+        $keys = array_keys($properties);
+        $plength = count($keys);
+        for($i=0;$i<$plength;$i++){
+            $method =  "get".$keys[$i];
+            if(method_exists ($this,$method)){
+                $json[$keys[$i]] = $this->$method();
+            }
+        }
+        return $json;
+    }
+
+}
+class Wish extends JsonSerialize
 {
+    public $testas = 1;
 //    ---------------------Variables-------------------
     /**
      * @var int
@@ -162,3 +181,5 @@ class Wish
     }
 
 }
+
+

@@ -10,6 +10,7 @@ namespace App\API;
 
 
 use App\Model\Wish;
+use App\Model\Demo;
 
 
 
@@ -39,7 +40,7 @@ class DbData
             $record->setDescription($item['description']);
             $record->setDate(new \DateTime($item['date']));
             $record->setPlace($item['place']);
-            $result[] = $record;
+            $result[] =  $record->jsonSerialize();
         }
         return $result;
     }
